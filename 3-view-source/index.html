@@ -19,20 +19,14 @@
 
       html,
       body {
-        width: 100%;
         height: 100%;
         font-family: 'Playfair Display', serif;
       }
 
       body {
-        /* background-color: #23232d; */
         background-color: #222;
         overflow: hidden;
         position: relative;
-      }
-
-      h1 {
-        font-size: 64px;
       }
 
       .outer {
@@ -42,7 +36,7 @@
         position: relative;
       }
 
-      .layer {
+      .gallery {
         width: 160%;
         height: 400%;
         /* background: url(bg.jpg); */
@@ -54,6 +48,7 @@
       }
 
       .title {
+        font-size: 64px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -62,7 +57,7 @@
         pointer-events: none;
       }
 
-      .layer__img {
+      .gallery__img {
         width: var(--w);
         aspect-ratio: 1 / 1;
         position: absolute;
@@ -72,7 +67,7 @@
         transition: 1s;
       }
 
-      .layer__img > img {
+      .gallery__img > img {
         width: 100%;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
@@ -80,20 +75,16 @@
         position: absolute;
       }
 
-      /* .layer__img.hover > img {
-        scale: 1.4;
-      } */
-
-      .layer__img:hover {
+      .gallery__img:hover {
         z-index: 999;
         scale: 1;
       }
 
-      .layer__img:nth-of-type(5n) > img {
+      .gallery__img:nth-of-type(5n) > img {
         animation: img__rotate 6s infinite;
       }
 
-      .layer__img:nth-of-type(10n) > img {
+      .gallery__img:nth-of-type(10n) > img {
         animation-delay: 1s;
       }
 
@@ -107,7 +98,7 @@
         }
       }
 
-      .layer__text {
+      .gallery__text {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -119,11 +110,11 @@
         color: #fff;
       }
 
-      .layer__text > p {
+      .gallery__text > p {
         grid-area: 1 / 1 / 1 / 1;
       }
 
-      .layer__textRotate {
+      .gallery__textRotate {
         transform-origin: center;
         width: 100%;
         height: 100%;
@@ -143,7 +134,7 @@
         }
       }
 
-      .layer__img:hover .layer__textRotate {
+      .gallery__img:hover .gallery__textRotate {
         animation-play-state: running;
         opacity: 1;
       }
@@ -152,185 +143,185 @@
   <body>
     <div class="outer">
       <h1 class="title">THIS WEB</h1>
-      <div class="layer">
-        <div class="layer__img">
+      <div class="gallery">
+        <div class="gallery__img">
           <img src="bg1.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg2.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg3.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg4.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg5.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg1.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg2.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg3.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg4.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg5.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg1.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg2.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg3.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg4.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg5.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg1.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg2.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg3.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg4.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg5.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg1.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg2.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg3.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg4.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg5.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg1.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg2.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg3.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg4.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
-        <div class="layer__img">
+        <div class="gallery__img">
           <img src="bg5.jpg" alt="" />
-          <div class="layer__textRotate">
-            <div class="layer__text">The Mountains Image is so cool</div>
+          <div class="gallery__textRotate">
+            <div class="gallery__text">The Mountains Image is so cool</div>
           </div>
         </div>
       </div>
@@ -355,22 +346,22 @@
 
       function init() {
         const outer = document.querySelector('.outer');
-        const layer = document.querySelector('.layer');
+        const gallery = document.querySelector('.gallery');
         outer.addEventListener('mousemove', (e) => {
           const outerSize = outer.getBoundingClientRect();
           const calcX = e.clientX - outerSize.width / 2;
           const calcY = (e.clientY - outerSize.height / 2) * 2;
 
           const transform = `translate(-50%, -50%) translate3D(${-calcX}px, ${-calcY}px, 0px)`;
-          layer.style.transform = transform;
+          gallery.style.transform = transform;
         });
 
-        // set layer img position
-        const layerImgs = document.querySelectorAll('.layer__img');
-        const length = layerImgs.length;
+        // set gallery img position
+        const galleryImgs = document.querySelectorAll('.gallery__img');
+        const length = galleryImgs.length;
         let randomX = generateUniqueNumbersInRange(length, 10, 90, 1);
         let randomY = generateUniqueNumbersInRange(length, 10, 90, 1);
-        layerImgs.forEach((img, i) => {
+        galleryImgs.forEach((img, i) => {
           img.style.setProperty('--t', `${randomX[i]}%`);
           img.style.setProperty('--l', `${randomY[i]}%`);
           img.style.setProperty(
@@ -379,7 +370,7 @@
           );
         });
 
-        const texts = document.querySelectorAll('.layer__text');
+        const texts = document.querySelectorAll('.gallery__text');
         texts.forEach((text) => {
           const length = text.innerText.length;
           const degree = 360 / length;
