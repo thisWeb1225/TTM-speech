@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+        background: #23232b;
+        overflow-x: hidden;
+      }
+
+      .container > img {
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        border-radius: 0.4rem;
+        object-fit: cover;
+      }
+
+      /* 
+一開始先簡單調整一下樣式
+這邊是用 grid 搭配 grid-area: 1 / 1來讓兩張圖片重疊在一起
+用 position: absolute 也是可以的
+
+aspect-ratio 設定圖片比例
+不知道的話可以參考之前貼文的教學
+      */
+
+      .container {
+        --d: 1s; /* duration */
+        display: grid;
+        width: 50%;
+        justify-self: center;
+      }
+      .container > img {
+        grid-area: 1 / 1;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        border: 1px solid #555;
+      }
+
+      /* 
+接著設定動畫
+一開始希望圖片 1 移到上方，圖片 2 疊到下面
+      */
+
+      .container > img:nth-child(1) {
+        animation: img1ToUp var(--d) forwards;
+      }
+
+      .container > img:nth-child(2) {
+        animation: img2ToBottom var(--d) forwards;
+      }
+
+      /* 
+移動的方式是
+圖片 1 先往左上角移動
+再回中間並放大
+圖片 2 先往右下角移動
+再回中間縮小
+
+要注意 z-index 的調整
+再加上模糊濾鏡製作景深的效果
+      */
+      @keyframes img1ToUp {
+        0% {
+          transform: translate(-40%, -40%) scale(1);
+          filter: blur(2px);
+        }
+        35%,
+        65% {
+          transform: translate(-80%, -40%) scale(1.2) skew(2deg);
+          z-index: 2;
+        }
+        100% {
+          z-index: 2;
+          transform: translate(-30%, -30%) scale(1.4);
+        }
+      }
+      @keyframes img2ToBottom {
+        0% {
+          transform: translate(30%, 30%) scale(1.4);
+        }
+        35%,
+        65% {
+          transform: translate(80%, 40%) scale(1.2) skew(-2deg);
+        }
+        100% {
+          transform: translate(40%, 40%) scale(1);
+          filter: blur(2px);
+        }
+      }
+
+      /* 
+接著我們設定他們交換位置的動畫
+其實跟上面的動畫一模一樣
+移動的方向相同 順序相反而已 
+然後圖片一變縮小 圖片二變放大
+      */
+
+      .container.active > img:nth-child(1) {
+        animation: img1ToBottom var(--d) forwards;
+      }
+      .container.active > img:nth-child(2) {
+        animation: img2ToUp var(--d) forwards;
+      }
+      @keyframes img1ToBottom {
+        0% {
+          transform: translate(-30%, -30%) scale(1.4);
+          z-index: 2;
+        }
+        35%,
+        65% {
+          transform: translate(-80%, -40%) scale(1.2) skew(2deg);
+          z-index: 2;
+        }
+        100% {
+          transform: translate(-40%, -40%) scale(1);
+          filter: blur(2px);
+        }
+      }
+      @keyframes img2ToUp {
+        0% {
+          transform: translate(40%, 40%) scale(1);
+          filter: blur(2px);
+        }
+        35%,
+        65% {
+          transform: translate(80%, 40%) scale(1.2) skew(-2deg);
+        }
+        100% {
+          transform: translate(30%, 30%) scale(1.4);
+        }
+      }
+
+      /* 
+最後我們加上 hover 效果
+不過這裡不能用 transform
+而是要直接寫 scale，不然會被動畫效果吃掉
+(直接寫 width: 110% 也能有放大的效果，但在效能上不推薦使用 width 改變大小)
+      */
+
+      .container > img {
+        transition: 1s;
+      }
+      .container > img:hover {
+        scale: 1.1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="1.jpg" alt="" />
+      <img src="2.jpg" alt="" />
+    </div>
+
+    <script>
+      const img1 = document.querySelector('.container > img:nth-child(1)');
+      const img2 = document.querySelector('.container > img:nth-child(2)');
+
+      function addSwitchEffect(dom) {
+        const container = document.querySelector('.container');
+        dom.addEventListener('click', () => {
+          container.classList.toggle('active');
+        });
+      }
+
+      addSwitchEffect(img1);
+      addSwitchEffect(img2);
+    </script>
+  </body>
+</html>

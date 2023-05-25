@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
+      html {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        font-family: 'Playfair Display', serif;
+      }
+
+      body {
+        /* background-color: #23232d; */
+        background-color: #222;
+        overflow: hidden;
+        position: relative;
+      }
+
+      h1 {
+        font-size: 64px;
+      }
+
+      .outer {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .layer {
+        width: 160%;
+        height: 400%;
+        /* background: url(bg.jpg); */
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform-origin: center;
+        transition: transform 1s linear;
+      }
+
+      .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        pointer-events: none;
+      }
+
+      .layer__img {
+        width: var(--w);
+        aspect-ratio: 1 / 1;
+        position: absolute;
+        left: var(--l);
+        top: var(--t);
+        scale: 0.5;
+        transition: 1s;
+      }
+
+      .layer__img > img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+      }
+
+      /* .layer__img.hover > img {
+        scale: 1.4;
+      } */
+
+      .layer__img:hover {
+        z-index: 999;
+        scale: 1;
+      }
+
+      .layer__img:nth-of-type(5n) > img {
+        animation: img__rotate 6s infinite;
+      }
+
+      .layer__img:nth-of-type(10n) > img {
+        animation-delay: 1s;
+      }
+
+      @keyframes img__rotate {
+        0% {
+          rotate: 0;
+        }
+        50%,
+        100% {
+          rotate: 1turn;
+        }
+      }
+
+      .layer__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 150%;
+        height: 150%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        justify-content: center;
+        color: #fff;
+      }
+
+      .layer__text > p {
+        grid-area: 1 / 1 / 1 / 1;
+      }
+
+      .layer__textRotate {
+        transform-origin: center;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        font-size: 5px;
+        transition: opacity 1s;
+        animation: text__rotate 10s linear infinite;
+        animation-play-state: paused;
+      }
+
+      @keyframes text__rotate {
+        from {
+          rotate: 0;
+        }
+        to {
+          rotate: 1turn;
+        }
+      }
+
+      .layer__img:hover .layer__textRotate {
+        animation-play-state: running;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <h1 class="title">THIS WEB</h1>
+      <div class="layer">
+        <div class="layer__img">
+          <img src="bg1.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg2.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg3.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg4.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg5.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg1.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg2.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg3.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg4.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg5.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg1.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg2.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg3.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg4.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg5.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg1.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg2.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg3.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg4.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg5.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg1.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg2.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg3.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg4.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg5.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg1.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg2.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg3.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg4.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+        <div class="layer__img">
+          <img src="bg5.jpg" alt="" />
+          <div class="layer__textRotate">
+            <div class="layer__text">The Mountains Image is so cool</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function generateUniqueNumbersInRange(count, min, max, range) {
+        if (count === 1) {
+          return (Math.random() * (max - min + 1) + min).toFixed(1);
+        }
+
+        let numbers = [];
+        while (numbers.length < count) {
+          let num = (Math.random() * (max - min + 1) + min).toFixed(2);
+          let isInRange = numbers.every((n) => Math.abs(num - n) >= range);
+          if (isInRange) {
+            numbers.push(num);
+          }
+        }
+        return numbers;
+      }
+
+      function init() {
+        const outer = document.querySelector('.outer');
+        const layer = document.querySelector('.layer');
+        outer.addEventListener('mousemove', (e) => {
+          const outerSize = outer.getBoundingClientRect();
+          const calcX = e.clientX - outerSize.width / 2;
+          const calcY = (e.clientY - outerSize.height / 2) * 2;
+
+          const transform = `translate(-50%, -50%) translate3D(${-calcX}px, ${-calcY}px, 0px)`;
+          layer.style.transform = transform;
+        });
+
+        // set layer img position
+        const layerImgs = document.querySelectorAll('.layer__img');
+        const length = layerImgs.length;
+        let randomX = generateUniqueNumbersInRange(length, 10, 90, 1);
+        let randomY = generateUniqueNumbersInRange(length, 10, 90, 1);
+        layerImgs.forEach((img, i) => {
+          img.style.setProperty('--t', `${randomX[i]}%`);
+          img.style.setProperty('--l', `${randomY[i]}%`);
+          img.style.setProperty(
+            '--w',
+            `${generateUniqueNumbersInRange(1, 100, 150, 0)}px`
+          );
+        });
+
+        const texts = document.querySelectorAll('.layer__text');
+        texts.forEach((text) => {
+          const length = text.innerText.length;
+          const degree = 360 / length;
+          text.innerHTML = text.innerText
+            .split('')
+            .map((char, i) => {
+              return `<p style="transform:rotate(${
+                i * degree
+              }deg)">${char}</p>`;
+            })
+            .join('');
+        });
+      }
+
+      window.onload = () => {
+        init();
+      };
+    </script>
+  </body>
+</html>

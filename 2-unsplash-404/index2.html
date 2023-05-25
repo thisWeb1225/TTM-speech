@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        font-family: 'Open Sans', serif;
+      }
+
+      body {
+        background-color: #000;
+        overflow: hidden;
+      }
+
+      .page404 {
+        height: 100%;
+        /* background: radial-gradient(
+          #fff 10%,
+          transparent 0%
+        ); */
+      }
+
+      .page404__img {
+        --x: 500px;
+        --y: 500px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: radial-gradient(
+            circle at var(--x) var(--y),
+            rgba(0, 0, 0, 0) 10%,
+            rgba(0, 0, 0, 1) 40%
+          ),
+          center / cover no-repeat url(bg.jpg);
+      }
+
+      .page404__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        display: flex;
+        gap: 16px;
+        font-size: 88px;
+        font-weight: bolder;
+        text-shadow: 0 0 16px;
+        animation: blur 1s infinite alternate;
+      }
+
+      .page404__title-blink {
+        animation: blink 5s var(--delay) steps(1) infinite;
+      }
+
+      @keyframes blur {
+        0%,
+        30% {
+          filter: blur(1px);
+        }
+        50%,
+        100% {
+          filter: blur(2px);
+        }
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50%,
+        70% {
+          opacity: 0;
+        }
+        51%,
+        71%,
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page404">
+      <div class="page404__img"></div>
+      <div class="page404__title">
+        <p>
+          Pag<span class="page404__title-blink" style="--delay: 3s">e</span>
+        </p>
+        <p>not</p>
+        <p>
+          fo<span class="page404__title-blink" style="--delay: 1s">u</span>nd
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const container = document.querySelector('.page404');
+      const img = document.querySelector('.page404__img');
+
+      function moveEffect(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        img.style.setProperty('--x', `${x}px`);
+        img.style.setProperty('--y', `${y}px`);
+      }
+
+      container.addEventListener('mousemove', moveEffect);
+    </script>
+  </body>
+</html>
